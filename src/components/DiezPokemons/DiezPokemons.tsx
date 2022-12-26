@@ -62,7 +62,7 @@ export const Diezpokemons = () => {
         pokemonsArray.map((obj:PokemonObject, index:number) => (
           <div className="list" id={`id_${index}`} data-testid={`id_${index}`}>
           <Link state={obj} to={`/pokemon/${obj.name}`} key={index} >
-            <img width="250" height="250" src={(obj as any).sprites.front_default} alt="pokemonImage"/>
+            <img width="250px" height="250px" src={(obj as any).sprites.front_default} alt="pokemonImage"/>
             {obj.name}
           </Link>
           </div>

@@ -4,6 +4,7 @@ $visited-color: lighten($link-color, 20%);
 
 .cont {
   display: flex;
+  flex-wrap: wrap;
   margin-top: 3rem;
 }
 
