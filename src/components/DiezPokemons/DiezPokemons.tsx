@@ -48,6 +48,7 @@ export const Diezpokemons = () => {
   } 
 
   const fetchPkmn = async () => {
+
     const num: number = randomInteger(0,700)
     const data = await fetch(`https://pokeapi.co/api/v2/pokemon/${num}`)
     const json = await data.json()
@@ -55,18 +56,18 @@ export const Diezpokemons = () => {
   }
 
   return (
-    <div className="cont">
+    <div className="cont" data-testid="container">
       {
         pokemonsArray.length > 0 ? 
         pokemonsArray.map((obj:PokemonObject, index:number) => (
-          <div className="list" id={`id_${index}`}>
+          <div className="list" id={`id_${index}`} data-testid={`id_${index}`}>
           <Link state={obj} to={`/pokemon/${obj.name}`} key={index} >
             <img src={(obj as any).sprites.front_default} alt="pokemonImage"/>
             {obj.name}
           </Link>
           </div>
         ))
-        : <div>Loading Pokemons...</div>
+        : <div data-testid="loader">Loading Pokemons...</div>
       }
       </div>
   )
