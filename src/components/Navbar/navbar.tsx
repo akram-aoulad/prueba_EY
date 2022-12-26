@@ -1,5 +1,5 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 import { randomInteger } from '../DiezPokemons/DiezPokemons.service'
 
 export const Navbar = () => {
@@ -13,7 +13,7 @@ export const Navbar = () => {
           </NavLink>
           <NavLink className={({ isActive }) => 'nav-item nav-link ' + (isActive ? 'active' : '')}
             to={`/pokemon/${randomInteger(0, 700)}`}>
-            Pokemon (Pikachu by default)
+            Pokemon
           </NavLink>
         </div>
       </div>

@@ -6,7 +6,6 @@ import PokemonComp from '../components/Pokemon/pokemonComp';
 
 const Pokemon = () => {
   const params = useParams();
-  console.log(params.pokemonid);
     return (<>
       <PokemonComp id={params.pokemonid}></PokemonComp>
     </>

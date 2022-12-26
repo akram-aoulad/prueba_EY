@@ -6,12 +6,13 @@ const PokemonComp = (props:PokemonObject) => {
 
 
   const [pokemonsArray, setpokemonsArray] = useState(window.history.state?.usr ?? null);
-
+  console.log(props.id)
   useEffect(() => {
+    console.log(props.id, pokemonsArray);
     if (!pokemonsArray) {
       pokedetails();
     }
-  }, [])
+  }, [props.id])
 
   async function pokedetails() {
 
