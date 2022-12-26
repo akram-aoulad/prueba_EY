@@ -10,6 +10,8 @@ $visited-color: lighten($link-color, 20%);
 
 .list {
   transition: scale .1s ease-in-out;
+  //margin-left: 2%;
+  //margin-right: 2%;
   text-align: center;
   &:hover {
     scale: 1.05;
@@ -21,6 +23,8 @@ $visited-color: lighten($link-color, 20%);
   & > a{
     text-decoration: none;
   }
+
+  & img { display: block;}
 }
 
 a {
