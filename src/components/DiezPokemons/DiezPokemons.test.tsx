@@ -3,7 +3,7 @@ import { prettyDOM, render, screen, waitFor } from "@testing-library/react"
 import Diezpokemons from "./DiezPokemons";
 import { randomInteger } from "./DiezPokemons.service";
 import { act } from "react-dom/test-utils";
-jest.setTimeout(15000)
+jest.setTimeout(70000)
 
 describe('DiezPokemons test', () => {
     it('should render loading', async () => {
@@ -14,8 +14,15 @@ describe('DiezPokemons test', () => {
     // due the delay on the api, the test suite is not able to find the requested data.
     it.skip('should render elements', async () => {
         await new Promise(r => setTimeout(r, 7000))
-        const elements = screen.getByTestId('id_0')
-        await expect(elements).toBeTruthy()
+        // eslint-disable-next-line testing-library/prefer-find-by
+        await waitFor(() => expect(screen.getByTestId('id_0')).toBeTruthy(), { timeout: 70000})
+    })
+    // We're going to fetch with the standalone function, in order to ensure that the component is retrieving the data
+    // as it should be.
+    it('should return data from poke api', async() => {
+        const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${randomInteger(0,10)}`)
+        const json = await response.json()
+        await waitFor(() => expect(json).not.toBeNull())
     })
 })
 
